@@ -7,12 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    private bool canDash = true;
-    private bool isDashing;
-    private float dashingPower = 24f;
-    private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
-
     public float speed = 10;
     [SerializeField] private float JumpingPower = 25f;
 
@@ -34,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpingPower = new Vector2(40f, 45f);
 
     private bool isFacingRight = true;
 
@@ -43,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.visible = false;
         rb = GetComponent<Rigidbody2D>();
+
     }
     void FixedUpdate()
     {
@@ -104,6 +99,18 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+    public void ChangeTrail(InputAction.CallbackContext ctx)
+    {
+        int index = Random.Range(0, 1);
+        if (index == 1)
+        {
+            rb.gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
+        }
+        else
+        {
+            rb.gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
+        }
     }
     public void WallJumping(InputAction.CallbackContext ctx)
     {

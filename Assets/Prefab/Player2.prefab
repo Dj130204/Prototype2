@@ -284,11 +284,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 8126887839897927087}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: WallJumping
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -296,6 +296,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4ad4215e-3e31-4de9-8d1c-72f8658c86e6
     m_ActionName: 'Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8126887839897927087}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ChangeTrail
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5dad462d-f62c-457b-9c66-cc030e4fa497
+    m_ActionName: 'Gameplay/colourChange[/DualShock4GamepadHID/rightStickPress,/Keyboard/1]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -313,9 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fc3365902d53144a35527a107acc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   JumpingPower: 40
-  wallSlidingSpeed: 2
+  wallSlidingSpeed: 4
   groundCheck: {fileID: 2709216584633028777}
   groundLayer:
     serializedVersion: 2
@@ -323,7 +339,7 @@ MonoBehaviour:
   wallCheck: {fileID: 5744432362926777291}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
 --- !u!96 &3032364450589192870
 TrailRenderer:
   serializedVersion: 3
@@ -619,7 +635,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.023584902, g: 0.8149983, b: 1, a: 1}
+  m_Color: {r: 0.07609467, g: 0.68765193, b: 0.8490566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
