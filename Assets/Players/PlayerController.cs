@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    
 
     public float speed = 10;
     [SerializeField] private float JumpingPower = 25f;
 
-    private bool isWallSliding;
-    [SerializeField] private float wallSlidingSpeed = 1f;
+
 
     private float horizontal;
     private Vector2 movement;
@@ -20,15 +20,28 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+
+
+    //wall Jumping and sliding
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(40f, 45f);
+    [SerializeField] private float wallJumpingTime = 0.2f;
+    [SerializeField] private float wallJumpingCounter;
+    [SerializeField] private float wallJumpingDuration = 0.4f;
+    [SerializeField] private Vector2 wallJumpingPower = new Vector2(40f, 45f);
+
+    private bool isWallSliding;
+    [SerializeField] private float wallSlidingSpeed = 1f;
+
+    //dashing
+    private bool canDash = true;
+    private bool isDashing;
+    [SerializeField] private float dashingPower = 24f;
+    [SerializeField] private float dashingTime = 0.2f;
+    [SerializeField] private float dashingCooldown = 3f;
 
     private bool isFacingRight = true;
 
@@ -41,6 +54,11 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         if (!isFacingRight && horizontal > 0f)
         {
@@ -100,18 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = context.ReadValue<Vector2>().x;
     }
-    public void ChangeTrail(InputAction.CallbackContext ctx)
-    {
-        int index = Random.Range(0, 1);
-        if (index == 1)
-        {
-            rb.gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
-        }
-        else
-        {
-            rb.gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
-        }
-    }
+
     public void WallJumping(InputAction.CallbackContext ctx)
     {
         if (isWallSliding)
@@ -143,6 +150,27 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
+    }
+    public void Dash(InputAction.CallbackContext ctx)
+    {
+        if (canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+    }
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        //float originalGravity = rb.gravityScale;
+        //rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        //rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
     private void StopWallJumping()

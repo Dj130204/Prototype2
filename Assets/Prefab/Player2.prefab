@@ -298,9 +298,9 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8126887839897927087}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: ChangeTrail
+      - m_Target: {fileID: 6125932300352061060}
+        m_TargetAssemblyTypeName: ColourChange, Assembly-CSharp
+        m_MethodName: ChangeColour
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -312,6 +312,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5dad462d-f62c-457b-9c66-cc030e4fa497
     m_ActionName: 'Gameplay/colourChange[/DualShock4GamepadHID/rightStickPress,/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8126887839897927087}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6937a94c-a778-445c-ae04-1b3906a59c30
+    m_ActionName: 'Gameplay/Dash[/DualShock4GamepadHID/leftShoulder,/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -331,7 +347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   JumpingPower: 40
-  wallSlidingSpeed: 4
   groundCheck: {fileID: 2709216584633028777}
   groundLayer:
     serializedVersion: 2
@@ -340,6 +355,14 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 72
+  wallJumpingTime: 0.2
+  wallJumpingCounter: 3
+  wallJumpingDuration: 0.4
+  wallJumpingPower: {x: 40, y: 45}
+  wallSlidingSpeed: 4
+  dashingPower: 24
+  dashingTime: 0.3
+  dashingCooldown: 1
 --- !u!96 &3032364450589192870
 TrailRenderer:
   serializedVersion: 3
@@ -569,6 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6160736125758732312}
   - component: {fileID: 6135675848107228937}
+  - component: {fileID: 6125932300352061060}
   m_Layer: 7
   m_Name: Body1
   m_TagString: Untagged
@@ -645,3 +669,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6125932300352061060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269300350554503779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5167094c3a2632f4a872306b2981bd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
