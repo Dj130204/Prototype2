@@ -3602,7 +3602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 2
+  m_MaxPlayerCount: 4
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
@@ -4206,6 +4206,7 @@ MonoBehaviour:
   timeRemaining: 30
   timerIsRunning: 0
   timeText: {fileID: 105222304}
+  totalTime: 0
   AddTime: 5
 --- !u!4 &1986596859
 Transform:
