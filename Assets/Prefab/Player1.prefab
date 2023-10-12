@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 8126887839897927087}
   m_Layer: 7
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,6 +283,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4ad4215e-3e31-4de9-8d1c-72f8658c86e6
     m_ActionName: 'Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5dad462d-f62c-457b-9c66-cc030e4fa497
+    m_ActionName: 'Gameplay/colourChange[/XInputControllerWindows/rightStickPress,/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6937a94c-a778-445c-ae04-1b3906a59c30
+    m_ActionName: 'Gameplay/Dash[/XInputControllerWindows/leftShoulder,/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -301,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  wallSlidingSpeed: 2
+  JumpingPower: 25
   groundCheck: {fileID: 2709216584633028777}
   groundLayer:
     serializedVersion: 2
@@ -310,6 +318,14 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  wallJumpingTime: 0.2
+  wallJumpingCounter: 0
+  wallJumpingDuration: 0.4
+  wallJumpingPower: {x: 40, y: 45}
+  wallSlidingSpeed: 2
+  dashingPower: 24
+  dashingTime: 0.2
+  dashingCooldown: 3
 --- !u!1 &3828073031539705954
 GameObject:
   m_ObjectHideFlags: 0

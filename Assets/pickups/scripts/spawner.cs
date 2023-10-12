@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public int numberToSpawn;
     public List<GameObject> spawnPool;
     public GameObject quad;
+    public int spawnCount = 0;
 
     void Start()
     {
@@ -33,7 +34,6 @@ public class Spawner : MonoBehaviour
             pos = new Vector2(screenX*10, screenY);
 
             Instantiate(toSpawn, pos, toSpawn.transform.rotation);
-
         }
     }
     private void destroyObjects()
@@ -41,7 +41,35 @@ public class Spawner : MonoBehaviour
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("spawnable"))
         {
             Destroy(o);
+            spawnCount = 0;
         }
+    }
+    public void WhenToSpawn() 
+    {
+        if (spawnCount < 1)
+        {
+            spawnObjects();
+        }
+    }
+
+    public void spawnOneObject()
+    {
+        int randomItem = 0;
+        GameObject toSpawn;
+        MeshCollider c = quad.GetComponent<MeshCollider>();
+
+        float screenX, screenY;
+        Vector2 pos;
+        
+        randomItem = Random.Range(0, spawnPool.Count);
+        toSpawn = spawnPool[randomItem];
+
+        screenX = Random.Range(-2, 3);
+        screenY = Random.Range(0, 80);
+        pos = new Vector2(screenX * 10, screenY);
+
+        Instantiate(toSpawn, pos, toSpawn.transform.rotation);
+        
     }
 
 

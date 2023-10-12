@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6014800922789427382}
   - component: {fileID: 8804802452183417983}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744432362926777291}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: wallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,9 +129,9 @@ GameObject:
   - component: {fileID: 1953680227670038696}
   - component: {fileID: 8126887839897927087}
   - component: {fileID: 3032364450589192870}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8662440667133675326}
   - component: {fileID: 1266310312373908109}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2709216584633028777}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 6160736125758732312}
   - component: {fileID: 6135675848107228937}
   - component: {fileID: 6125932300352061060}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
