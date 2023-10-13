@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 5;
+    public float timeRemaining = 2;
     public bool timerIsRunning = false;
     public Text timeText;
+    public Text EndTime;
     public float totalTime = 0;
-    [SerializeField] public float AddTime = 5;
+    private float timeFactor = 0;
+    [SerializeField] public float AddTime = 5f;
+    public GameObject EndPage;
     private void Start()
     {
         // Starts the timer automatically
@@ -31,8 +34,8 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
-                SceneManager.LoadScene("EndScene");
-                DisplayEndTime(totalTime);
+                EndPage.SetActive(true);
+                TotalTime(totalTime);
             }
         }
     }
@@ -47,14 +50,15 @@ public class Timer : MonoBehaviour
     {
         
         timeRemaining = timeRemaining + AddTime;
-        totalTime += AddTime;
-        Debug.Log("TIME INCREASED");
+        timeFactor = totalTime * 5;
+        totalTime += AddTime/timeFactor;
+        Debug.Log("timeFactor: "+timeFactor);
     }
-    void DisplayEndTime(float totalTime)
+    public void TotalTime(float timeToDisplay)
     {
-        totalTime += 1;
-        float minutes = Mathf.FloorToInt(totalTime / 60);
-        float seconds = Mathf.FloorToInt(totalTime % 60);
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        EndTime.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

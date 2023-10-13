@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class pickups : MonoBehaviour
@@ -11,7 +10,7 @@ public class pickups : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.GameTimer.IncreaseTime();
-            GameManager.GameSpawner.spawnOneObject();
+            GameManager.GameSpawner.spawnObjects();
         }
 
     }
